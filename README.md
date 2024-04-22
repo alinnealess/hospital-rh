@@ -1,18 +1,57 @@
-## Getting Started
+# Sistema de Gerenciamento de Consultas Hospitalares
+Este é um sistema desenvolvido para gerenciar consultas médicas em um hospital, envolvendo médicos e pacientes. Foi implementado como parte da disciplina de Linguagem de Programação II do curso de Bacharelado em Tecnologia da Informação da Universidade Federal do Rio Grande do Norte (UFRN).
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Funcionalidades
+### Classes Principais
 
-## Folder Structure
+#### Médico
+- Atributos:
+String nome
+String CPF
+String especialidade
+String CRM
+- Métodos:
+Métodos get/set
+Construtor com atributos
 
-The workspace contains two folders by default, where:
+### Paciente
+- Atributos:
+String nome
+String CPF
+boolean convênio
+String[] enfermidadesRegistradas
+- Métodos:
+Métodos get/set
+Construtor com atributos
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+### Consulta
+- Atributos:
+Paciente paciente
+Médico médico
+int dataAgendada
+Métodos:
+Métodos get/set
+Construtor com atributos
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+### Gerenciador
+Gerenciador
+- Atributos:
+Medico[] medicos
+Paciente[] pacientes
+Consulta[] consultas
+- Métodos:
+Construtor que recebe o tamanho dos arrays e os inicializa
+public boolean cadastrarMedico(String especialidade, String crm, String nome, String cpf)
+public boolean cadastrarPaciente(boolean convenio, String nome, String cpf, String[] enf)
+public void cadastrarConsulta(String cpfMedico, String cpfPaciente, int diaConsulta)
+public void listarConsultas()
+public void listarMedicos()
+public void listarPacientes()
+public void excluirMedico(String cpfMedico)
+public void excluirPaciente(String cpfPaciente)
+public void excluirConsulta(String cpfMedico, String cpfPaciente, int dia)
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Execução
+Para executar o sistema:
+- Crie uma instância da classe Main
+- Utilize os métodos desta classe para interagir com o sistema, como cadastrar médicos, pacientes e consultas, listar informações e excluir registros.

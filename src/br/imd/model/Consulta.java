@@ -35,4 +35,15 @@ public class Consulta {
     this.dataAgendada = dataAgendada;
   }
 
+  @Override
+  public String toString() {
+    return paciente + "; \n" + medico + "; \nData Agendada:" + dataAgendada + "\n";
+  }
+
+
+// public String toString() {
+//   return "Consulta agendada para o dia " + dataAgendada + " com o médico " + medico.getNome() + " e o paciente " + paciente.getNome();
+// }
+
+
 }

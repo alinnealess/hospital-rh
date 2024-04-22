@@ -1,20 +1,16 @@
 package br.imd.model;
 
-import java.util.Vector;
 
 public class Medico extends Pessoa{
   protected String especialidade;
   protected String CRM;
-  private Paciente[] pacientesAtendidos = new Paciente[10];
-  private boolean[] consultasAgendadas = new boolean[30];
+  //private Paciente[] pacientesAtendidos = new Paciente[10];
+  //private boolean[] consultasAgendadas = new boolean[30];
 
-  public Medico(String nome, String cPF, String especialidade, String cRM, Paciente[] pacientesAtendidos,
-      boolean[] consultasAgendadas) {
+  public Medico(String nome, String cPF, String especialidade, String cRM) {
     super(nome, cPF);
     this.especialidade = especialidade;
-    this.CRM = cRM;
-    this.pacientesAtendidos = pacientesAtendidos;
-    this.consultasAgendadas = consultasAgendadas;
+    CRM = cRM;
   }
 
   public String getEspecialidade() {
@@ -33,23 +29,9 @@ public class Medico extends Pessoa{
     CRM = cRM;
   }
 
-  public Paciente[] getPacientesAtendidos() {
-    return pacientesAtendidos;
-  }
+  public String toString() {
+    return "Médico: " + nome + ", CRM: " + CRM + ", Especialidade: " + especialidade;
+}
 
-  public void setPacientesAtendidos(Paciente[] pacientesAtendidos) {
-    this.pacientesAtendidos = pacientesAtendidos;
-  }
-
-  public boolean[] getConsultasAgendadas() {
-    return consultasAgendadas;
-  }
-
-  public void setConsultasAgendadas(boolean[] consultasAgendadas) {
-    this.consultasAgendadas = consultasAgendadas;
-  }
-
-  
-  
 
 }

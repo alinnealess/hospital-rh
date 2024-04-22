@@ -3,11 +3,11 @@ package br.imd.model;
 public class Paciente extends Pessoa{
   protected boolean convenio;
   private String[] enfermidadesRegistradas = new String[10];
-  private Medico[] medicosAtendentes = new Medico[10];
-
-  public Paciente(String nome, String cPF, boolean convenio) {
+  
+  public Paciente(String nome, String cPF, boolean convenio, String[] enfermidadesRegistradas) {
     super(nome, cPF);
     this.convenio = convenio;
+    this.enfermidadesRegistradas = enfermidadesRegistradas;
   }
 
   public boolean isConvenio() {
@@ -26,14 +26,8 @@ public class Paciente extends Pessoa{
     this.enfermidadesRegistradas = enfermidadesRegistradas;
   }
 
-  public Medico[] getMedicosAtendentes() {
-    return medicosAtendentes;
-  }
-
-  public void setMedicosAtendentes(Medico[] medicosAtendentes) {
-    this.medicosAtendentes = medicosAtendentes;
-  }
-
-  
+  public String toString() {
+    return "Paciente: " + nome + ", CPF: " + CPF + ", Convenio: " + (convenio ? "Sim" : "Não");
+}
 
 }

@@ -1,52 +1,47 @@
 package br.imd.main;
 
 import br.imd.model.Gerenciador;
-import br.imd.model.Medico;
-import br.imd.model.Paciente;
 
 public class Main {
     public static void main(String[] args) {
-        Gerenciador gerenciador = new Gerenciador();
+    Gerenciador gerenciador = new Gerenciador(5);
 
-        // Criação e adição de médicos
-        Medico medico1 = new Medico("Dr. José", "123.456.789-00", "Cardiologia", "CRM1234", null, null);
-        Medico medico2 = new Medico("Dr. Ana", "234.567.890-11", "Pediatria", "CRM2345", null, null);
-        Medico medico3 = new Medico("Dr. Lucas", "345.678.901-22", "Neurologia", "CRM3456", null, null);
-        Medico medico4 = new Medico("Dra. Camila", "456.789.012-33", "Dermatologia", "CRM4567", null, null);
-        Medico medico5 = new Medico("Dr. Marco", "567.890.123-44", "Ortopedia", "CRM5678", null, null);
+    // Cadastrando médicos
+    gerenciador.cadastrarMedico("Cardiologia", "1234", "João Paulo", "123.456.789-00");
+    gerenciador.cadastrarMedico("Pediatria", "5678", "Maria Borges", "234.567.890-11");
+    gerenciador.cadastrarMedico("Ortopedia", "9012", "Felipe Henrique", "345.678.901-22");
+    gerenciador.cadastrarMedico("Neurologia", "9025", "Pedro Lucas", "379.777.830-96");
+    gerenciador.cadastrarMedico("Nefrologia", "1012", "Gabriel Henrique", "724.572.550-07");
 
-        gerenciador.addMedico(medico1);
-        gerenciador.addMedico(medico2);
-        gerenciador.addMedico(medico3);
-        gerenciador.addMedico(medico4);
-        gerenciador.addMedico(medico5);
+    // Cadastrando pacientes
+    gerenciador.cadastrarPaciente(true, "Ana Paula", "987.654.321-00", new String[]{"Dor no peito", "Febre"});
+    gerenciador.cadastrarPaciente(false, "José Feitosa", "876.543.210-11", new String[]{"Febre", "Dor nas Costas"});
+    gerenciador.cadastrarPaciente(false, "Maria Mercedes", "985.972.250-17", new String[]{"Gripe", "Febre"});
+    gerenciador.cadastrarPaciente(true, "Osvaldo RAfael", "379.777.830-96", new String[]{"Dor de cabeça", "Febre"});
+    gerenciador.cadastrarPaciente(true, "Marilia Gabriela", "885.972.250-17", new String[]{"Gripe", "Febre"});
 
-        // Criação e adição de pacientes
-        Paciente paciente1 = new Paciente("Maria Silva", "987.654.321-00", true);
-        Paciente paciente2 = new Paciente("João Pereira", "876.543.210-11", false);
-        Paciente paciente3 = new Paciente("Ana Costa", "765.432.109-22", true);
-        Paciente paciente4 = new Paciente("Luiz Santos", "654.321.098-33", true);
-        Paciente paciente5 = new Paciente("Camila Gomes", "543.210.987-44", false);
+    // Cadastrando consultas
+    gerenciador.cadastrarConsulta("123.456.789-00", "987.654.321-00", 20240423);
+    gerenciador.cadastrarConsulta("234.567.890-11", "876.543.210-11", 20240425);
+    gerenciador.cadastrarConsulta("345.678.901-22", "985.972.250-17", 20240427);
+    gerenciador.cadastrarConsulta("379.777.830-96", "379.777.830-96", 20240429);
+    gerenciador.cadastrarConsulta("724.572.550-07", "885.972.250-17", 20240501);
 
-        gerenciador.addPaciente(paciente1);
-        gerenciador.addPaciente(paciente2);
-        gerenciador.addPaciente(paciente3);
-        gerenciador.addPaciente(paciente4);
-        gerenciador.addPaciente(paciente5);
+    // Listando médicos, pacientes e consultas
+    gerenciador.listarMedicos();
+    gerenciador.listarPacientes();
+    gerenciador.listarConsultas();
 
-        // Cadastro de consultas
-        gerenciador.cadastrarConsulta(paciente1, medico1, 1);
-        gerenciador.cadastrarConsulta(paciente2, medico2, 3);
-        gerenciador.cadastrarConsulta(paciente3, medico3, 5);
-        gerenciador.cadastrarConsulta(paciente4, medico4, 7);
-        gerenciador.cadastrarConsulta(paciente5, medico5, 9);
+    // Excluindo um médico e um paciente
+    gerenciador.excluirMedico("724.572.550-07");
+    gerenciador.excluirPaciente("885.972.250-17");
 
-        // Listar todas as consultas
-        System.out.println("Todas as consultas:");
-        gerenciador.listarConsultasTodas();
-
-        // Listar consultas de um médico específico
-        System.out.println("\nConsultas do Dr. José:");
-        gerenciador.listarConsultasPorMedico(medico1);
-    }
+    // Listando médicos, pacientes e consultas após exclusões
+    gerenciador.listarMedicos();
+    gerenciador.listarPacientes();
+    gerenciador.listarConsultas();
 }
+
+}
+
+
